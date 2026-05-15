@@ -1,3 +1,5 @@
+//! Source: https://bulbapedia.bulbagarden.net/wiki/Stat
+
 use crate::config::Config;
 use crate::dsl::generation::Generation;
 use crate::dsl::nature::Nature;
@@ -34,7 +36,7 @@ impl Gen12StatFormula {
 
 impl StatFormula for Gen12StatFormula {
     fn calc(&self, config: &Config, pokemon: &Pokemon) -> Stats {
-        let base = pokemon.species.base.get(config.generation);
+        let base = pokemon.current_form().stats.get(config.generation);
         let level = pokemon.level;
         let ev = &pokemon.ev;
         let iv = &pokemon.iv;
@@ -85,7 +87,7 @@ impl Gen3OnwardsStatFormula {
 
 impl StatFormula for Gen3OnwardsStatFormula {
     fn calc(&self, config: &Config, pokemon: &Pokemon) -> Stats {
-        let base = pokemon.species.base.get(config.generation);
+        let base = pokemon.current_form().stats.get(config.generation);
         let level = pokemon.level;
         let ev = &pokemon.ev;
         let iv = &pokemon.iv;

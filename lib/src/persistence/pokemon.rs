@@ -1,5 +1,5 @@
 use crate::config::Config;
-use crate::data::dex::species::SpeciesData;
+use crate::data::dex::species::{FormData, SpeciesData};
 use crate::dsl::nature::Nature;
 use crate::dsl::stats::{Stats, EV, IV};
 use std::sync::Arc;
@@ -19,9 +19,14 @@ pub struct Pokemon {
     pub ev: EV,
     pub iv: IV,
     pub nature: Nature,
+    pub current_form_index: usize,
 }
 
 impl Pokemon {
+    pub fn current_form(&self) -> &FormData {
+        self.species.get_form(self.current_form_index)
+    }
+
     pub fn calc_stats(&self, config: &Config) -> Stats {
         config.stat_formula.calc(config, self)
     }

@@ -5,6 +5,7 @@ use std::sync::Arc;
 use string_interner::DefaultStringInterner;
 
 pub mod ability;
+mod form;
 pub mod item;
 pub mod poke_move;
 pub mod poke_type;
