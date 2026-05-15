@@ -1,0 +1,184 @@
+TypeChart((
+    id: "canonical",
+    default: Some(Normal),
+    effectiveness: {
+        // === 1. normal === //
+        ("normal", "rock"):  NotVeryEffective,
+        ("normal", "ghost"): NoEffect,
+        ("normal", "steel"): NotVeryEffective,
+
+        // === 2. fighting === //
+        ("fighting", "normal"):  SuperEffective,
+        ("fighting", "ice"):     SuperEffective,
+        ("fighting", "poison"):  NotVeryEffective,
+        ("fighting", "flying"):  NotVeryEffective,
+        ("fighting", "psychic"): NotVeryEffective,
+        ("fighting", "bug"):     NotVeryEffective,
+        ("fighting", "rock"):    SuperEffective,
+        ("fighting", "ghost"):   NoEffect,
+        ("fighting", "dark"):    SuperEffective,
+        ("fighting", "steel"):   SuperEffective,
+        ("fighting", "fairy"):   NotVeryEffective,
+
+        // === 3. flying === //
+        ("flying", "electric"):  NotVeryEffective,
+        ("flying", "grass"):     SuperEffective,
+        ("flying", "fighting"):  SuperEffective,
+        ("flying", "bug"):       SuperEffective,
+        ("flying", "rock"):      NotVeryEffective,
+        ("flying", "steel"):     NotVeryEffective,
+
+        // === 4. poison === //
+        ("poison", "grass"):   SuperEffective,
+        ("poison", "poison"):  NotVeryEffective,
+        ("poison", "ground"):  NotVeryEffective,
+        ("poison", "rock"):    NotVeryEffective,
+        ("poison", "ghost"):   NotVeryEffective,
+        ("poison", "steel"):   NoEffect,
+        ("poison", "fairy"):   SuperEffective,
+        ("poison", "bug"): (
+            until: 2,
+            value: SuperEffective,
+            otherwise: Normal,
+        ),
+
+        // === 5. ground === //
+        ("ground", "fire"):      SuperEffective,
+        ("ground", "electric"):  SuperEffective,
+        ("ground", "grass"):     NotVeryEffective,
+        ("ground", "poison"):    SuperEffective,
+        ("ground", "bug"):       NotVeryEffective,
+        ("ground", "flying"):    NoEffect,
+        ("ground", "rock"):      SuperEffective,
+        ("ground", "steel"):     SuperEffective,
+
+        // === 6. rock === //
+        ("rock", "fire"):      SuperEffective,
+        ("rock", "ice"):       SuperEffective,
+        ("rock", "fighting"):  NotVeryEffective,
+        ("rock", "ground"):    NotVeryEffective,
+        ("rock", "flying"):    SuperEffective,
+        ("rock", "bug"):       SuperEffective,
+        ("rock", "steel"):     NotVeryEffective,
+
+        // === 7. bug === //
+        ("bug", "fire"):       NotVeryEffective,
+        ("bug", "grass"):      SuperEffective,
+        ("bug", "fighting"):   NotVeryEffective,
+        ("bug", "flying"):     NotVeryEffective,
+        ("bug", "psychic"):    SuperEffective,
+        ("bug", "ghost"):      NotVeryEffective,
+        ("bug", "dark"):       SuperEffective,
+        ("bug", "steel"):      NotVeryEffective,
+        ("bug", "fairy"):      NotVeryEffective,
+        ("bug", "poison"): (
+            from: 2,
+            value: NotVeryEffective,
+            otherwise: SuperEffective,
+        ),
+
+        // === 8. ghost === //
+        ("ghost", "normal"):   NoEffect,
+        ("ghost", "ghost"):    SuperEffective,
+        ("ghost", "dark"):     NotVeryEffective,
+        ("ghost", "psychic"): (
+            from: 2,
+            value: SuperEffective,
+            otherwise: NoEffect,
+        ),
+        ("ghost", "steel"): (
+            until: 6,
+            value: NotVeryEffective,
+            otherwise: Normal,
+        ),
+
+        // === 9. steel === //
+        ("steel", "fire"):     NotVeryEffective,
+        ("steel", "water"):    NotVeryEffective,
+        ("steel", "electric"): NotVeryEffective,
+        ("steel", "ice"):      SuperEffective,
+        ("steel", "rock"):     SuperEffective,
+        ("steel", "steel"):    NotVeryEffective,
+        ("steel", "fairy"):    SuperEffective,
+
+        // === 10. fire === //
+        ("fire", "fire"):   NotVeryEffective,
+        ("fire", "water"):  NotVeryEffective,
+        ("fire", "grass"):  SuperEffective,
+        ("fire", "ice"):    SuperEffective,
+        ("fire", "bug"):    SuperEffective,
+        ("fire", "rock"):   NotVeryEffective,
+        ("fire", "dragon"): NotVeryEffective,
+        ("fire", "steel"):  SuperEffective,
+
+        // === 11. water === //
+        ("water", "fire"):   SuperEffective,
+        ("water", "water"):  NotVeryEffective,
+        ("water", "grass"):  NotVeryEffective,
+        ("water", "ground"): SuperEffective,
+        ("water", "rock"):   SuperEffective,
+        ("water", "dragon"): NotVeryEffective,
+
+        // === 12. grass === //
+        ("grass", "fire"):   NotVeryEffective,
+        ("grass", "water"):  SuperEffective,
+        ("grass", "grass"):  NotVeryEffective,
+        ("grass", "poison"): NotVeryEffective,
+        ("grass", "ground"): SuperEffective,
+        ("grass", "flying"): NotVeryEffective,
+        ("grass", "bug"):    NotVeryEffective,
+        ("grass", "rock"):   SuperEffective,
+        ("grass", "dragon"): NotVeryEffective,
+        ("grass", "steel"):  NotVeryEffective,
+
+        // === 13. electric === //
+        ("electric", "water"):    SuperEffective,
+        ("electric", "electric"): NotVeryEffective,
+        ("electric", "grass"):    NotVeryEffective,
+        ("electric", "ground"):   NoEffect,
+        ("electric", "flying"):   SuperEffective,
+        ("electric", "dragon"):   NotVeryEffective,
+
+        // === 14. psychic === //
+        ("psychic", "fighting"): SuperEffective,
+        ("psychic", "poison"):   SuperEffective,
+        ("psychic", "psychic"):  NotVeryEffective,
+        ("psychic", "steel"):    NotVeryEffective,
+        ("psychic", "dark"):     NoEffect,
+
+        // === 15. ice === //
+        ("ice", "fire"):   NotVeryEffective,
+        ("ice", "water"):  NotVeryEffective,
+        ("ice", "grass"):  SuperEffective,
+        ("ice", "ice"):    NotVeryEffective,
+        ("ice", "ground"): SuperEffective,
+        ("ice", "flying"): SuperEffective,
+        ("ice", "dragon"): SuperEffective,
+        ("ice", "steel"):  NotVeryEffective,
+
+        // === 16. dragon === //
+        ("dragon", "dragon"): SuperEffective,
+        ("dragon", "steel"):  NotVeryEffective,
+        ("dragon", "fairy"):  NoEffect,
+
+        // === 17. dark === //
+        ("dark", "fighting"): NotVeryEffective,
+        ("dark", "psychic"):  SuperEffective,
+        ("dark", "ghost"):    SuperEffective,
+        ("dark", "dark"):     NotVeryEffective,
+        ("dark", "fairy"):    NotVeryEffective,
+        ("dark", "steel"): (
+            until: 6,
+            value: NotVeryEffective,
+            otherwise: Normal,
+        ),
+
+        // === 18. fairy === //
+        ("fairy", "fire"):     NotVeryEffective,
+        ("fairy", "poison"):   NotVeryEffective,
+        ("fairy", "fighting"): SuperEffective,
+        ("fairy", "dragon"):   SuperEffective,
+        ("fairy", "dark"):     SuperEffective,
+        ("fairy", "steel"):    NotVeryEffective,
+    },
+))

@@ -1,6 +1,7 @@
 use crate::dsl::condition::BattleCondition;
 use crate::engine::battle::Battle;
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum Effect {
     None,

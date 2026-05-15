@@ -1,0 +1,7 @@
+[package]
+name = "poke-dsl-app"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+poke-dsl = { workspace = true, features = ["ron", "serde"] }

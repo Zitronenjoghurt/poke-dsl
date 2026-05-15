@@ -1,9 +1,13 @@
-use crate::data::poke_type::TypeData;
-use crate::data::{Dex, Key, Resolvable, ResolveError};
+use crate::data::dex::poke_type::TypeData;
+use crate::data::dex::Dex;
+use crate::data::dex::Resolvable;
+use crate::data::dex::ResolveError;
+use crate::data::store::Key;
 use crate::dsl::attempt::Attempt;
 use crate::dsl::condition::BattleCondition;
 use std::sync::Arc;
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct RawMoveData {
     id: String,
@@ -12,6 +16,7 @@ pub struct RawMoveData {
     attempt: Attempt,
 }
 
+#[derive(Debug)]
 pub struct MoveData {
     id: Key<MoveData>,
     types: Vec<Arc<TypeData>>,

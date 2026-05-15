@@ -1,5 +1,6 @@
 use crate::engine::battle::Battle;
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum Number {
     Exact(usize),
@@ -7,6 +8,8 @@ pub enum Number {
 
 impl Number {
     pub fn evaluate(&self, battle: &Battle) -> usize {
-        0
+        match self {
+            Number::Exact(n) => *n,
+        }
     }
 }

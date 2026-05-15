@@ -11,6 +11,7 @@ pub trait Checkable {
     fn check(&self, ctx: &mut Self::Context) -> bool;
 }
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum Condition<L> {
     Always,
@@ -32,6 +33,7 @@ impl<L: Checkable> Condition<L> {
     }
 }
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum BattlePredicate {
     Prob(Probability),
@@ -51,6 +53,7 @@ impl Checkable for BattlePredicate {
     }
 }
 
+#[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub enum FighterPredicate {}
 
